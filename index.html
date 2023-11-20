@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hund</title>
+</head>
+<body>
+
+    <script>
+
+        const car = {
+            brand: "bmw",
+            model: "m3 e36",
+            year: 1999,
+            class: "coupe",
+            seats: 2,
+            transmission: "6 speed manual",
+            weight: 1420, // kg
+            fuelTankCapacity: 62, // l
+            parkingBrake: false,
+            speed: 0, // km/h
+
+            engine: {
+                model: "S50B32",
+                fuel: "gasoline",
+                configuration: "R6",
+                volume: 3201, // ccm
+                power: 236, // kW
+                zeroToOneHundred: 5.2, // s
+                topSpeed: 250, // km/h
+
+                state: "idle",
+                rpm: 0
+            },
+
+            start: function() {
+                car.engine.state = "running"
+                car.engine.rpm = 800
+            },
+
+            stop: function() {
+                car.engine.state = "idle"
+                car.engine.rpm = 0
+            },
+
+            engageParkingBrake: function() {
+                car.parkingBrake = true
+            },
+
+            disengageParkingBrake: function() {
+                car.parkingBrake = false
+            },
+
+            accelerate: function() {
+                car.speed += 10
+            },
+
+            brake: function() {
+                car.speed = 0
+            }
+
+        }
+
+
+    // test
+        car.start()
+        console.log(car.engine.state)
+
+        car.stop()
+        console.log(car.engine.state)
+
+        car.engageParkingBrake()
+        console.log(car.parkingBrake)
+
+        car.disengageParkingBrake()
+        console.log(car.parkingBrake)
+
+
+        for(let i = 0 ; i < 5; i++) {
+        car.accelerate()
+    }
+        console.log(car.speed + " km/h")
+
+
+        car.brake()
+        console.log(car.speed + " km/h")
+
+    </script>
+    
+</body>
+</html>
